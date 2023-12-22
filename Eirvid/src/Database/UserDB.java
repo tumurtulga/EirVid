@@ -7,6 +7,8 @@ package Database;
 
 import Entity.User;
 import Entity.Level;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -124,13 +126,13 @@ public class UserDB extends ConnectionDB {
         }
     }
 
-    private void solveEquation() throws ClassNotFoundException {
+    private void rentMovie() throws ClassNotFoundException {
 
         System.out.println("-------------------------");
-        System.out.println("------EQUATION TYPE------");
+        System.out.println("------MOVIE RENTAL------");
         System.out.println("-------------------------");
-        System.out.println("1. 2x2");
-        System.out.println("2. 3x3");
+        System.out.println("1. MOVIES LIST");
+        System.out.println("2. RENT MOVIES");
         System.out.println("3. BACK");
         System.out.println("Your choice: ");
 
@@ -138,8 +140,6 @@ public class UserDB extends ConnectionDB {
         while (!quit) {
             boolean saver = false;
             try {
-                TwoVariables two;
-                ThreeVariables three;
                 String userInput = "";
                 String solution = "";
                 Scanner sc = new Scanner(System.in);
@@ -147,31 +147,22 @@ public class UserDB extends ConnectionDB {
                 switch (input) {
                     case 1:
                         userInput = "";
-                        for (int i = 0; i < 2; i++) {
-                            System.out.print("Enter equation #" + (i + 1) + ": ");
-                            if (i != 0) {
-                                userInput += ", ";
+                        String csvFile = "path/to/your/file.csv";
+
+                        try (CSVReader reader = new CSVReader(new FileReader(csvFile))) {
+                            String[] nextLine;
+                            while ((nextLine = reader.readNext()) != null) {
+                                // Access each column of the current line
+                                for (String column : nextLine) {
+                                    System.out.print(column + " ");
+                                }
+                                System.out.println(); // Move to the next line
                             }
-                            userInput = userInput + sc.next().trim();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
-                        two = new TwoVariables(userInput);
-                        solution = "(x, y) " + Arrays.toString(two.solveTwo());
-                        System.out.println(solution);
-                        saver = true;
                         break;
                     case 2:
-                        userInput = "";
-                        for (int i = 0; i < 3; i++) {
-                            System.out.print("Enter equation #" + (i + 1) + ": ");
-                            if (i != 0) {
-                                userInput += ", ";
-                            }
-                            userInput = userInput + sc.next().trim();
-                        }
-                        three = new ThreeVariables(userInput);
-                        solution = "(x, y, z) " + Arrays.toString(three.solveThree());
-                        System.out.println(solution);
-                        saver = true;
                         break;
                     case 3:
                         menuUserChoice();
@@ -201,9 +192,6 @@ public class UserDB extends ConnectionDB {
                 System.out.println("Bad Input!!! Must be an integer");
             }
         }
-    }
-
-    private void rentMovie() {
 
     }
 

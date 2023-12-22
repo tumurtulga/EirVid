@@ -6,9 +6,15 @@
 package Database;
 
 /**
- *
- * @author deece
+ * @author Mirae Yu
+ * @author Yuna Jang
+ * @author Tumurtulga Batjargal
+ * @author Jeffersen Sousa Silva
  */
-public class ConnectionDB {
-    
+public abstract class ConnectionDB {
+
+    final String db_url = "jdbc:mysql://localhost/eirvid";
+    final String db_username = "root";
+    final String db_password = "root";
+
 }

@@ -5,22 +5,23 @@
  */
 package eirvid;
 
+import Database.Login;
+
 /**
- *
- * @author deece
+ * @author Mirae Yu
+ * @author Yuna Jang
+ * @author Tumurtulga Batjargal
+ * @author Jeffersen Sousa Silva
  */
 public class Eirvid {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         // TODO code application logic here
-        System.out.println(""
-                + "asdasd"
-                + "asdasd"
-                + "asdasd"
-                + "");
+        Login lg = new Login();
+        lg.login();
     }
-    
+
 }

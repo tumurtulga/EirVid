@@ -6,9 +6,14 @@
 package Entity;
 
 /**
- *
- * @author deece
+ * @author Mirae Yu
+ * @author Yuna Jang
+ * @author Tumurtulga Batjargal
+ * @author Jeffersen Sousa Silva
  */
-public class Level {
-    
+public enum Level {
+    admin,
+    regular;
+
+    int id;
 }

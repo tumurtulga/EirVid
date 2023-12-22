@@ -147,7 +147,7 @@ public class UserDB extends ConnectionDB {
                 switch (input) {
                     case 1:
                         userInput = "";
-                        String csvFile = "path/to/your/file.csv";
+                        String csvFile = "C:/Users/yjang/OneDrive/Desktop/Eirvid/Eirvid/Movie_Metadata.csv";
 
                         try (CSVReader reader = new CSVReader(new FileReader(csvFile))) {
                             String[] nextLine;
@@ -241,6 +241,12 @@ public class UserDB extends ConnectionDB {
         } catch (SQLException e) {
             e.printStackTrace();
 
+        }
+    }
+
+    private static class CSVReader {
+
+        public CSVReader(FileReader fileReader) {
         }
     }
 

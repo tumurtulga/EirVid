@@ -5,6 +5,8 @@
  */
 package Entity;
 
+import java.io.File;
+
 /**
  * @author Mirae Yu
  * @author Yuna Jang
@@ -14,5 +16,5 @@ package Entity;
 public class Movie {
     
     
-    
+    File file = new File("C:/Users/yjang/OneDrive/Desktop/Eirvid/Eirvid/Movie_Metadata.csv");
 }
